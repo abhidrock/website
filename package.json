@@ -1,0 +1,31 @@
+{
+  "name": "webapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "debug-mode": "DEBUG=webapp:* npm start"
+  },
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.3",
+    "angular": "^1.6.8",
+    "angular-ui-bootstrap": "^2.5.6",
+    "body-parser": "~1.18.2",
+    "bootstrap": "^4.0.0-alpha.6",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.15.5",
+    "jquery": "^3.2.1",
+    "morgan": "~1.9.0",
+    "pug": "2.0.0-beta11",
+    "serve-favicon": "~2.4.5",
+    "tether": "^1.4.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-env": "^0.4.0",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-run-command": "0.0.9",
+    "nodemon": "^1.14.7"
+  }
+}
