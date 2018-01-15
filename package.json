@@ -26,6 +26,7 @@
     "gulp": "^3.9.1",
     "gulp-env": "^0.4.0",
     "gulp-nodemon": "^2.2.1",
+    "gulp-pug": "^3.3.0",
     "gulp-run-command": "0.0.9",
     "nodemon": "^1.14.7"
   }

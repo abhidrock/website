@@ -25,7 +25,7 @@ var User     = require('./models/user');
 // =============================================================================
 var router = express.Router();              // get an instance of the express Router
 
-var port = process.env.PORT || 8080;        // set our port
+//var port = process.env.PORT || 8081;        // set our port
 // router.use(bodyParser.json());
 
 var index = require('./routes/index');
@@ -38,9 +38,9 @@ router.use(function(req, res, next) {
     next(); // make sure we go to the next routes and don't stop here
 });
 
-/*// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+// view engine setup
+//app.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -50,7 +50,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+//app.use('/', index);
+/*
 app.use('/users', users);
 
 // We will also add next() to indicate to our application that it should continue to the other routes.
@@ -69,8 +70,8 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  //res.status(err.status || 500);
+  //res.render('error');
 });
 
 var data = {first_name : "john",
@@ -160,7 +161,6 @@ app.use('/api', router);
 
 // START THE SERVER
 // =============================================================================
-app.listen(port);
-console.log('website starts on port ' + port);
-
+//app.listen(port);
+//console.log('website starts on port ' + port);
 module.exports = app;
