@@ -1,7 +1,7 @@
 (function() {
     'use strict'
 
-module.exports = function(gulp) {
+module.exports = function(gulp, livereload) {
 
     return function(cb) {
         var nodemon = require('gulp-nodemon');
@@ -23,6 +23,8 @@ module.exports = function(gulp) {
         })
         .on('restart', function () {
             console.log('restarted!')
+            gulp.src('./bin/www')
+			.pipe(livereload())
           });
         
 

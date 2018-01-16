@@ -49,11 +49,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static(path.join(__dirname, 'src')));
 //app.use('/', index);
 /*
 app.use('/users', users);
-
 // We will also add next() to indicate to our application that it should continue to the other routes.
 // This is important because our application would stop at this middleware without it.
 // catch 404 and forward to error handler

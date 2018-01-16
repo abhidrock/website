@@ -8,7 +8,8 @@ module.exports = function(gulp, path) {
     gulp.src([
         path.join('node_modules/jquery/dist/**/jquery.min.js'),
         path.join('node_modules/bootstrap/dist/**/bootstrap.min.js'),
-        path.join('node_modules/tether/dist/**/*.min.js')
+        path.join('node_modules/tether/dist/**/*.min.js'),
+        path.join('node_modules/angular/angular.min.js')
       ])
       .pipe(gulp.dest(path.join('public/javascripts')));
 
