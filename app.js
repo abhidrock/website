@@ -19,7 +19,8 @@ mongoose.connect(mongoDB, {
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-var User     = require('./models/user');
+var User = require('./models/user');
+var Blog = require('./models/blog');
 
 // ROUTES FOR OUR API
 // =============================================================================
@@ -148,6 +149,52 @@ router.route('/register')
 
     });
 });
+
+// Added routes for Blog GET, PUT and DELETE
+router.route('/users/:user_id/blogs/:blog_id')
+    .get(function (req, res) {
+       Blog.findById(req.params.blog_id, function (err, blog) {
+      /* Blog.find({_id : req.params.blog_id, user : req.params.user_id}, function(err, blog) {*/
+            if(err)
+                res.send(err);
+            res.json(blog)
+        })
+    })
+    .put(function (req, res) {
+        Blog.update({_id:req.params.blog_id}, req.body, function (err, blog) {
+            if(err)
+                res.send(err);
+            res.json(blog);
+        })
+    })
+    .delete(function (req, res) {
+        Blog.remove({_id: req.params.blog_id}, function (err, blog) {
+            if(err)
+                res.send(err);
+            res.json({status : "blog removed"})
+        })
+    });
+
+// create blog
+router.route('/users/:user_id/blogs')
+    .post(function (req, res) {
+        console.log("Got a blog create request");
+        Blog.create(req.body, function (err, blog) {
+            if(err)
+                res.send(err);
+            res.json(blog);
+        })
+    })
+    // Get all blogs for a user
+    .get(function (req, res) {
+        // added criteria
+        Blog.find({user : req.params.user_id}, function (err, blog) {
+            if(err)
+                res.send(err);
+            res.json(blog);
+        })
+    });
+
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {

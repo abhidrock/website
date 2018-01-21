@@ -9,7 +9,7 @@ var BlogSchema = new Schema({
     user: {type: Schema.ObjectId, ref: 'User', required: true}, //reference to the associated user
     description: {type: String, required: true},
     summary: {type: String},
-    date_of_submission: {type: date, default: Date.now},
+    date_of_submission: {type: Date, default: Date.now},
     ref_url: {type: String}
 });
 
